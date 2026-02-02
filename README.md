@@ -1,115 +1,68 @@
 # Banking System Frontend
 
-A modern, responsive frontend for a Banking System built with React, TypeScript, and Tailwind CSS. This application allows users to manage their accounts, perform transactions (deposits, withdrawals, transfers), and view their financial dashboard.
+A modern, responsive frontend for a Banking System built with React, TypeScript, and Tailwind CSS.
+
+## ☁️ Deployment on Render (Fixing CORS)
+
+Since the backend hosted on Render does not allow Cross-Origin (CORS) requests from other domains (including your frontend), you must configure a **Rewrite Rule** to proxy requests through your frontend's server.
+
+### Option 1: Zero-Config Deployment (Recommended)
+
+This project includes a `render.yaml` file that automatically configures the environment and rewrite rules.
+
+1.  **Push your code** to GitHub.
+2.  **Log in to Render** and go to "Blueprints".
+3.  **Click "New Blueprint Instance"**.
+4.  **Connect your repository** (`WideSu/banking_system_frontend`).
+5.  **Click "Apply"**. Render will create the static site with all correct configurations.
+
+### Option 2: Manual Configuration
+
+If you prefer to set it up manually as a "Static Site":
+
+1.  **Create New Static Site** on Render connected to your repo.
+2.  **Build Command**: `npm install && npm run build`
+3.  **Publish Directory**: `dist`
+4.  **Environment Variables**:
+    *   `VITE_API_URL` = `/api`
+5.  **Redirects/Rewrites** (Crucial!):
+    *   **Source**: `/api/*`
+    *   **Destination**: `https://banking-system-backend-klt3.onrender.com/*`
+    *   **Action**: `Rewrite`
+    *   *(Add another rule for SPA routing)*:
+    *   **Source**: `/*`
+    *   **Destination**: `/index.html`
+    *   **Action**: `Rewrite`
 
 ## 🚀 Features
 
-*   **User Authentication**: Simple login mechanism using account names (Password-less for demo purposes).
+*   **User Authentication**: Simple login mechanism using account names.
 *   **Account Dashboard**: Real-time view of account balance and status.
-*   **Transactions**:
-    *   **Deposit**: Add funds to your account.
-    *   **Withdrawal**: Withdraw funds (with balance validation).
-    *   **Transfer**: Send money to other accounts.
-*   **Responsive Design**: Optimized for both desktop and mobile devices using Tailwind CSS.
-*   **State Management**: Efficient global state management using Zustand.
-*   **Form Handling**: Robust form validation using React Hook Form and Yup.
+*   **Transactions**: Deposit, Withdrawal, and Transfer capabilities.
+*   **Responsive Design**: Optimized for all devices.
 
 ## 🛠️ Tech Stack
 
-*   **Framework**: [React](https://reactjs.org/) (v18)
-*   **Build Tool**: [Vite](https://vitejs.dev/)
-*   **Language**: [TypeScript](https://www.typescriptlang.org/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **State Management**: [Zustand](https://github.com/pmndrs/zustand)
-*   **Routing**: [React Router](https://reactrouter.com/) (v6)
-*   **Forms**: [React Hook Form](https://react-hook-form.com/) + [Yup](https://github.com/jquense/yup)
-*   **Icons**: [Lucide React](https://lucide.dev/)
-*   **HTTP Client**: [Axios](https://axios-http.com/)
-
-## 📋 Prerequisites
-
-*   Node.js (v18 or higher recommended)
-*   npm (v9 or higher)
-*   Backend Service: `https://banking-system-backend-klt3.onrender.com/`
-
-## 🛠️ Installation
-
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/WideSu/banking_system_frontend.git
-    cd banking_system_frontend
-    ```
-
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
-
-3.  **Environment Setup**
-    Create a `.env` file in the root directory:
-    ```
-    VITE_API_URL=https://banking-system-backend-klt3.onrender.com/
-    ```
+*   **Framework**: React (v18) + Vite
+*   **Styling**: Tailwind CSS
+*   **State Management**: Zustand
+*   **HTTP Client**: Axios
 
 ## 🏃‍♂️ Running Locally
 
-1.  **Start the development server**
+1.  **Clone & Install**:
+    ```bash
+    git clone https://github.com/WideSu/banking_system_frontend.git
+    cd banking_system_frontend
+    npm install
+    ```
+
+2.  **Start Dev Server**:
     ```bash
     npm run dev
     ```
-
-2.  **Open in Browser**
-    The application will be available at `http://localhost:5173`.
-    *Note: Ensure your VITE_API_URL is set correctly.*
-
-## 🏗️ Building for Production
-
-To create a production-ready build:
-
-```bash
-npm run build
-```
-
-This will generate a `dist` folder containing the compiled static assets.
-
-## ☁️ Deployment (Render/Vercel/Netlify)
-
-This project is ready for deployment on free cloud providers like **Render**, **Vercel**, or **Netlify**.
-
-1.  **Push your code to GitHub**.
-2.  **Import the project** in Vercel/Netlify dashboard.
-3.  **Configure Build Settings**:
-    *   **Build Command**: `npm run build`
-    *   **Output Directory**: `dist`
-4.  **Add Environment Variable**:
-    *   Key: `VITE_API_URL`
-    *   Value: `https://banking-system-backend-klt3.onrender.com/`
-5.  **Deploy**!
-
-## 🐳 Docker Deployment
-
-The project includes a `Dockerfile` and `nginx.conf` for easy containerization.
-
-1.  **Build the Docker image**
-    ```bash
-    docker build -t banking-frontend .
-    ```
-
-2.  **Run the container**
-    ```bash
-    docker run -p 8080:80 -e VITE_API_URL=https://banking-system-backend-klt3.onrender.com/ banking-frontend
-    ```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1.  Fork the project
-2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
+    The app will start at `http://localhost:5173` and proxy API requests to the remote backend automatically.
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License.

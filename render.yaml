@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: banking-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: /api
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://banking-system-backend-klt3.onrender.com/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
