@@ -72,9 +72,9 @@ npm run build
 
 This will generate a `dist` folder containing the compiled static assets.
 
-## ☁️ Deployment (Vercel/Netlify)
+## ☁️ Deployment (Render/Vercel/Netlify)
 
-This project is ready for deployment on free cloud providers like **Vercel** or **Netlify**.
+This project is ready for deployment on free cloud providers like **Render**, **Vercel**, or **Netlify**.
 
 1.  **Push your code to GitHub**.
 2.  **Import the project** in Vercel/Netlify dashboard.
