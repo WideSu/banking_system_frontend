@@ -30,7 +30,7 @@ A modern, responsive frontend for a Banking System built with React, TypeScript,
 
 *   Node.js (v18 or higher recommended)
 *   npm (v9 or higher)
-*   Backend Service (The frontend expects a backend running at `http://localhost:8000`)
+*   Backend Service: `https://banking-system-backend-klt3.onrender.com/`
 
 ## 🛠️ Installation
 
@@ -45,6 +45,12 @@ A modern, responsive frontend for a Banking System built with React, TypeScript,
     npm install
     ```
 
+3.  **Environment Setup**
+    Create a `.env` file in the root directory:
+    ```
+    VITE_API_URL=https://banking-system-backend-klt3.onrender.com/
+    ```
+
 ## 🏃‍♂️ Running Locally
 
 1.  **Start the development server**
@@ -54,7 +60,7 @@ A modern, responsive frontend for a Banking System built with React, TypeScript,
 
 2.  **Open in Browser**
     The application will be available at `http://localhost:5173`.
-    *Note: The frontend is configured to proxy `/api` requests to `http://localhost:8000` during development.*
+    *Note: Ensure your VITE_API_URL is set correctly.*
 
 ## 🏗️ Building for Production
 
@@ -65,6 +71,20 @@ npm run build
 ```
 
 This will generate a `dist` folder containing the compiled static assets.
+
+## ☁️ Deployment (Vercel/Netlify)
+
+This project is ready for deployment on free cloud providers like **Vercel** or **Netlify**.
+
+1.  **Push your code to GitHub**.
+2.  **Import the project** in Vercel/Netlify dashboard.
+3.  **Configure Build Settings**:
+    *   **Build Command**: `npm run build`
+    *   **Output Directory**: `dist`
+4.  **Add Environment Variable**:
+    *   Key: `VITE_API_URL`
+    *   Value: `https://banking-system-backend-klt3.onrender.com/`
+5.  **Deploy**!
 
 ## 🐳 Docker Deployment
 
@@ -77,12 +97,8 @@ The project includes a `Dockerfile` and `nginx.conf` for easy containerization.
 
 2.  **Run the container**
     ```bash
-    docker run -p 8080:80 banking-frontend
+    docker run -p 8080:80 -e VITE_API_URL=https://banking-system-backend-klt3.onrender.com/ banking-frontend
     ```
-
-    The app will be accessible at `http://localhost:8080`.
-
-    > **Note on Docker Networking**: The Nginx configuration proxies `/api` requests to `http://host.docker.internal:8000`. Ensure your backend is reachable at this address from within the container.
 
 ## 🤝 Contributing
 
