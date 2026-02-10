@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Accounts from './pages/Accounts';
-import Transactions from './pages/Transactions';
+import Transfers from './pages/Transfers';
 import History from './pages/History';
 import Profile from './pages/Profile';
 import Layout from './components/Layout';
@@ -29,7 +29,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/accounts" element={<Accounts />} />
-            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/transfers" element={<Transfers />} />
             <Route path="/history" element={<History />} />
             <Route path="/profile" element={<Profile />} />
           </Route>

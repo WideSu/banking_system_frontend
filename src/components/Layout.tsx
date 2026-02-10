@@ -3,7 +3,9 @@ import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   Menu as MenuIcon,
   Home,
+  CreditCard,
   ArrowRightLeft,
+  History,
   User,
   X,
   LogOut,
@@ -14,12 +16,11 @@ import { Link, useLocation, Outlet } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { cn } from '../lib/utils';
 
-// Removed 'Accounts' and 'History' from navigation as they are not fully supported by the current backend or redundant.
-// 'Accounts' is redundant because the user IS the account.
-// 'History' is removed because backend has no history API.
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
-  { name: 'Transactions', href: '/transactions', icon: ArrowRightLeft },
+  { name: 'Accounts', href: '/accounts', icon: CreditCard },
+  { name: 'Transfers', href: '/transfers', icon: ArrowRightLeft },
+  { name: 'History', href: '/history', icon: History },
 ];
 
 export default function Layout() {

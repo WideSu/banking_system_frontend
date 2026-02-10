@@ -33,12 +33,13 @@ graph TD
 ## 3. Route definitions
 | Route | Purpose |
 |-------|---------|
-| / | Login page, user authentication entry point |
-| /dashboard | Dashboard page, main overview after login |
-| /accounts | Account management page, view and manage accounts |
-| /transactions | Transaction page, perform deposits/withdrawals/transfers |
-| /history | Transaction history page, view all past transactions |
-| /profile | Profile page, manage user settings and preferences |
+| /login | Login page, user authentication with email/password and social login |
+| /signup | Registration page with email, password, confirm password fields |
+| /dashboard | Dashboard page with overview cards, charts, and quick actions |
+| /accounts | Account management page displaying accounts list and details |
+| /transfers | Transfer page with form and recent recipients sidebar |
+| /history | Transaction history page with filters and export functionality |
+| /profile | Profile page accessed via header dropdown, user settings |
 | /logout | Logout endpoint, clear session and redirect to login |
 
 ## 4. API definitions

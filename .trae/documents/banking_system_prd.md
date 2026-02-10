@@ -13,28 +13,28 @@ The system serves individual banking customers who need convenient access to the
 
 ### 2.2 Feature Module
 The banking system frontend consists of the following main pages:
-1. **Login page**: User authentication, secure credential input.
-2. **Dashboard page**: Account overview, balance display, quick actions.
-3. **Account management page**: Account details, account settings, account creation.
-4. **Transaction page**: Deposit, withdrawal, and transfer operations with form validation.
-5. **Transaction history page**: Filterable transaction list, transaction details, export capabilities.
+1. **Login/Signup page**: Centered card layout with email/password authentication and social login options.
+2. **Dashboard page**: Sidebar navigation with overview cards, charts, and quick actions for account management.
+3. **Account management page**: Accounts list with detailed account information and editing capabilities.
+4. **Transfers page**: Form-based money transfers with confirmation modal and recent recipients sidebar.
+5. **Transaction history page**: Filterable transaction table with export functionality (CSV/PDF).
 6. **Profile page**: User information, security settings, password management.
 
 ### 2.3 Page Details
 | Page Name | Module Name | Feature description |
 |-----------|-------------|---------------------|
-| Login page | Authentication | Validate user credentials with secure token-based authentication. Display error messages for invalid credentials. Include password reset functionality. |
-| Dashboard page | Account Overview | Display all user accounts with current balances. Show recent transactions summary. Provide quick action buttons for common operations. |
-| Dashboard page | Navigation | Main navigation menu with access to all features. Responsive sidebar that collapses on mobile devices. |
-| Account management page | Account List | Display all accounts with account numbers, types, and balances. Include search and filter capabilities. |
-| Account management page | Account Details | Show detailed account information including account type, status, creation date, and transaction limits. |
-| Transaction page | Deposit Form | Input field for deposit amount with validation. Account selection dropdown. Confirmation dialog before processing. |
-| Transaction page | Withdrawal Form | Input field for withdrawal amount with balance validation. Account selection. Overdraft protection warnings. |
-| Transaction page | Transfer Form | Source and destination account selection. Amount input with validation. Add beneficiary functionality. |
-| Transaction history page | Transaction List | Paginated list of all transactions with date, type, amount, and status. Include search by date range and transaction type. |
-| Transaction history page | Transaction Details | Detailed view of individual transactions including reference numbers, descriptions, and processing status. |
-| Profile page | User Information | Display and edit personal information including name, email, phone number, and address. |
-| Profile page | Security Settings | Change password functionality. Two-factor authentication setup option. Security question management. |
+| Login page | Authentication Form | Centered card with email/password inputs, login/signup toggle, social login buttons. Include forgot password link and terms & conditions acceptance. |
+| Dashboard page | Overview Cards | Row 1: Total balance card, pending transfers card, recent transactions card with key metrics and status indicators. |
+| Dashboard page | Charts Section | Row 2: Spending breakdown chart (pie/donut), income vs expense chart (line/bar) with time period selectors. |
+| Dashboard page | Quick Actions | Row 3: Transfer button, deposit button, pay bills button with prominent styling and hover effects. |
+| Account management page | Accounts List | Card-based layout displaying account info: account number, type, current balance, status. Each card clickable for details. |
+| Account management page | Account Detail Page | Transaction summary section, complete account information display, editable nickname field with save functionality. |
+| Transfers page | Transfer Form | Form with: From account dropdown, To account dropdown, Amount input with validation, Note text field. Submit button triggers confirmation modal. |
+| Transfers page | Recent Recipients Sidebar | Right sidebar showing frequently used recipients with quick-select functionality and add new recipient option. |
+| Transaction history page | Transaction Table | Table with columns: Date, Description, Amount, Type, Status. Sortable headers with visual indicators. |
+| Transaction history page | Filters Section | Date range picker, account filter dropdown, transaction type filter. Apply/clear filter buttons. |
+| Transaction history page | Export Functionality | CSV and PDF export buttons with loading states and success/error notifications. |
+| Profile page | User Information | Display and edit personal information including name, email, phone number, and address. Accessed via header user profile dropdown. |
 
 ## 3. Core Process
 
@@ -86,11 +86,11 @@ graph TD
 ### 4.2 Page Design Overview
 | Page Name | Module Name | UI Elements |
 |-----------|-------------|-------------|
-| Login page | Authentication | Centered card layout with bank logo, clean input fields with icons, prominent login button, password visibility toggle |
-| Dashboard page | Account Overview | Grid layout of account cards showing balance prominently, recent transactions in compact list format, quick action buttons with icons |
-| Account management page | Account List | Table format with alternating row colors, search bar with filter dropdowns, action buttons per account |
-| Transaction page | Forms | Multi-step forms with progress indicators, large input fields with currency formatting, real-time validation feedback |
-| Transaction history page | Transaction List | Sortable table with date range picker, status badges with colors, pagination controls at bottom |
+| Login page | Authentication | Centered card (1440px desktop) with clean input fields, social login buttons (Google, Facebook), password visibility toggle, professional banking aesthetic. |
+| Dashboard page | Layout Structure | Fixed left sidebar with navigation, header with logo and user profile/notifications, main content area with three-row grid layout for cards, charts, and actions. |
+| Account management page | Account Cards | Card-based layout with account information clearly displayed, hover effects, and click-to-view-details functionality. |
+| Transfers page | Transfer Form | Clean form layout with dropdown selectors, amount input with currency formatting, note field, prominent submit button leading to confirmation modal. |
+| Transaction history page | Data Table | Professional table design with alternating row colors, status badges (green for completed, yellow for pending, red for failed), clear typography and spacing. |
 | Profile page | User Information | Form layout with labeled sections, save/cancel buttons, profile picture upload option |
 
 ### 4.3 Responsiveness
